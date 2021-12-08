@@ -1,13 +1,117 @@
 """
-Proyecto 
+Proyecto
 
-A continuación vamos a importar las listas que nos serán útiles en este proyecto.
-"""
+ Primero vamos a hacer un login de usuario sencillo, en donde meteremos nuestro código cuando el usuario ingrese la información correcta. Comenzaremos ingresando elusuario y la contraseña necesarios para acceder a la información
+
+ """
+
+USUARIO = 'Jaaz_G'
+CONTRASEÑA = 'Abcd1234'
+Intentos = 3 #Número de intentos que daremos
+
+"""En el código a continuación el usuario podrá ingresar su usuario y contraseña, los cuales, al no ser los correctos, enviarán un mensaje de error y reducirán el número de intentos que el usuario tiene para acceder. 
+
+El código en sí es bastante repetitivo, pues se reduce a que con ayuda de un if se verifica si el usuario y contraseña son los correctos, y de no serlo se manda un mesaje y se vuelve a intentar, por lo que sólo comentaremos la primera parte del mismo"""
+
+usuario_ingresado = input('Nombre de usuario: ') #se pide al usuario ingresar su nombre de usuario
+if usuario_ingresado == USUARIO: #Si es el correcto, se procede
+  contraseña_ingresada = input('Contraseña: ') #Se pide la contraseña al usuario
+  if contraseña_ingresada == CONTRASEÑA: #Si la contraseña es correcta, se da la bienvenida al usuario:
+    print('Bienvenido usuario, a continuación de presenta la información del reporte') 
+  else: #Si la contraseña presentada no es correcta
+    Intentos = Intentos-1 #Se reducen los intentos
+    print('Contraseña equivocada, te quedan '+str(Intentos)+' intentos.') #Se a visa del error
+    contraseña_ingresada = input('Contraseña: ') #Se vuelve a pedir la contraseña
+    if contraseña_ingresada == CONTRASEÑA: #Se vuelve a corroborar si es correcta
+      print('Bienvenido usuario, a continuación de presenta la información del reporte')
+    else:
+      Intentos = Intentos-1
+      print('Contraseña equivocada, te quedan '+str(Intentos)+' intentos.')
+      contraseña_ingresada = input('Contraseña: ')
+      if contraseña_ingresada == CONTRASEÑA:
+        print('Bienvenido usuario, a continuación de presenta la información del reporte')
+      else:
+        Intentos = Intentos-1
+        print('Contraseña equivocada, te quedan '+str(Intentos)+' intentos.')
+        if Intentos == 0: #Cuado el número de intentos llega a cero, se saca al usuario
+          print('Lo sentimos, has utilizado el número máximo de intentos, no puedes ingresar.')
+          exit() #Con ayuda de exit() el código se deja de ejecutar, por lo que el usuario ya no podría acceder a la información
+else: #Esta opción es si se falla por primera vez en ingresar correctamente el usuario
+  Intentos = Intentos - 1 #Se reducen los intentos
+  print('El usuario ingresado no existe, te quedan '+str(Intentos)+' intentos.') #avisa del error
+  usuario_ingresado = input('Nombre de usuario: ') #se pide de nuevo el usuario
+  if usuario_ingresado == USUARIO: #si es correcto se repite el ciclo anterior
+    contraseña_ingresada = input('Contraseña: ')
+    if contraseña_ingresada == CONTRASEÑA:
+      print('Bienvenido usuario, a continuación de presenta la información del reporte') 
+    else:
+      Intentos = Intentos-1
+      print('Contraseña equivocada, te quedan '+str(Intentos)+' intentos.')
+      contraseña_ingresada = input('Contraseña: ')
+      if contraseña_ingresada == CONTRASEÑA:
+        print('Bienvenido usuario, a continuación de presenta la información del reporte')
+      else:
+        Intentos = Intentos-1
+        print('Contraseña equivocada, te quedan '+str(Intentos)+' intentos.')
+        if Intentos == 0:
+              print('Lo sentimos, has utilizado el número máximo de intentos, no puedes ingresar.')
+              exit()
+        else:
+          contraseña_ingresada = input('Contraseña: ')
+          if contraseña_ingresada == CONTRASEÑA:
+            print('Bienvenido usuario, a continuación de presenta la información del reporte')
+          else:
+            Intentos = Intentos-1
+            print('Contraseña equivocada, te quedan '+str(Intentos)+' intentos.')
+            if Intentos == 0:
+              print('Lo sentimos, has utilizado el número máximo de intentos, no puedes ingresar.')
+              exit()
+  else: 
+    Intentos = Intentos - 1  #Si el usuario no es correcto una segunda vez, se vuelve a repetir el proceso
+    print('El usuario ingresado no existe, te quedan '+str(Intentos)+' intentos.')
+    usuario_ingresado = input('Nombre de usuario: ')
+    if usuario_ingresado == USUARIO:
+      contraseña_ingresada = input('Contraseña: ')
+      if contraseña_ingresada == CONTRASEÑA:
+        print('Bienvenido usuario, a continuación de presenta la información del reporte')
+      else:
+        Intentos = Intentos-1
+        print('Contraseña equivocada, te quedan '+str(Intentos)+' intentos.')
+        if Intentos == 0:
+              print('Lo sentimos, has utilizado el número máximo de intentos, no puedes ingresar.')
+              exit()
+        else:
+          contraseña_ingresada = input('Contraseña: ')
+          if contraseña_ingresada == CONTRASEÑA:
+            print('Bienvenido usuario, a continuación de presenta la información del reporte')
+          else:
+            Intentos = Intentos-1
+            print('Contraseña equivocada, te quedan '+str(Intentos)+' intentos.')
+            contraseña_ingresada = input('Contraseña: ')
+            if contraseña_ingresada == CONTRASEÑA:
+              print('Bienvenido usuario, a continuación de presenta la información del reporte')
+            else:
+              Intentos = Intentos-1
+              print('Contraseña equivocada, te quedan '+str(Intentos)+' intentos.')
+              if Intentos == 0:
+                print('Lo sentimos, has utilizado el número máximo de intentos, no puedes ingresar.')
+                exit()
+    else: 
+      Intentos = Intentos - 1 
+      print('El usuario ingresado no existe, te quedan '+str(Intentos)+' intentos.')
+      if Intentos == 0:
+        print('Lo sentimos, has utilizado el número máximo de intentos, no puedes ingresar.')
+        exit() #Si al final no se encontró el usuario, el programa nos saca
+
+  """Notemos que el número de intentos puede ser gastado entre errores de nombre de usuario y contraseña, por lo que si se fallaran, por ejemplo, dos veces uno y una vez el otro, el programa nos sacaría. Una vez que nuestro usuario puede ingresar, podremos observar toda la información solicitada en el reporte, para lo cual se desarrolló el siguiente código.
+  
+   Lo primero que haremos, es importar las listas que nos serán útiles en este proyecto, pues en ellas está la información relevante del mismo. 
+  """
 
 from lifestore_file import lifestore_products, lifestore_sales, lifestore_searches
 
 """
-En cada caso vamos a considerar como producto el nombre del mismo. 
+En cada caso vamos a considerar como producto a su nombre. 
 
 Productos más vendidos y productos rezagados. 
 
@@ -43,7 +147,10 @@ top5_ventas = []#Creamos una lista donde se colocaran los id de productos con me
 for producto in numero_ventas: #Para cada objeto en esta lista, donde teníamos almacenado el id producto con su venta, se busca si es el mejor vendido
   for top in mejores5: #De la lista de mejores ventas
     if producto[1]==top: #Se compara el valor de la venta con el valor de la venta para cada id_del producto
-      top5_ventas.append(producto[0]) #Si coincide con estar en la lista de las mejores ventas, el id del producto se agrega a la lista de mejores vendidos
+      if producto[0] in top5_ventas:#Esta línea es para no repetir productos
+        do="no hace nada"
+      else:
+        top5_ventas.append(producto[0]) #Si coincide con estar en la lista de las mejores ventas, el id del producto se agrega a la lista de mejores vendidos
 
 
 i = 0 #Se inicia un contador para marcar los más vendidos
@@ -86,7 +193,10 @@ top10_busquedas = []#Creamos una lista donde se colocarán los id de productos c
 for producto in numero_consultas: #Para cada objeto en esta lista, donde teníamos almacenado el id producto con su número de busquedas, se busca si está entre los más buscados
   for top in masbuscados10: #De la lista de mayores búsquedas
     if producto[1]==top: #Se compara el valor de búsquedas con el valor para cada id del producto
-      top10_busquedas.append(producto[0]) #Si coincide con estar en la lista de más buscados, el id del producto se agrega a la lista de más buscados
+      if producto[0] in masbuscados10: #esta línea la colocamos para no repetir productos
+        do="no hace nada"
+      else:
+        top10_busquedas.append(producto[0]) #Si coincide con estar en la lista de más buscados, el id del producto se agrega a la lista de más buscados
 
 i = 0 #Se inicia un contador para marcar los más buscados
 los_10_mas_buscados = [] #Creamos una lista vacía para los 10 más buscados
@@ -119,7 +229,10 @@ top10_menosbusquedas = []#Creamos una lista donde se colocarán los id de produc
 for producto in numero_consultas: #Para cada objeto en esta lista, donde teníamos almacenado el id producto con su número de busquedas, se busca si está entre los menos buscados
   for top in menos_buscados: #De la lista de menores búsquedas
     if producto[1]==top: #Se compara el valor de búsquedas con el valor para cada id del producto
-      top10_menosbusquedas.append(producto[0]) #Si coincide con estar en la lista de más buscados, el id del producto se agrega a la lista de más buscados
+      if producto[0] in top10_menosbusquedas:
+        do="no hace nada"
+      else:
+        top10_menosbusquedas.append(producto[0])  #Si coincide con estar en la lista de más buscados, el id del producto se agrega a la lista de más buscados
 
 
 i = 0 #Se inicia un contador para marcar los menos buscados
@@ -168,7 +281,10 @@ for elemento in top10_stock: #Se checa cada id en la lista de los mejores vendid
   i = i + 1 #Se aumenta el contador para ponerlo junto al nombre del producto
   for producto in lifestore_products:#Para cada producto en la lista de productos, se busca su id
     if elemento == producto[0]:#Si coincide...
-      los_10_mas_reservas.append(producto[1])#Se agrega el producto a la lista de los más buscados
+      if producto[0] in los_10_mas_reservas:
+        do="no hace nada"
+      else:
+        los_10_mas_reservas.append(producto[1])#Se agrega el producto a la lista de los más buscados
       print(str(i)+'.-'+producto[1])# Se imprime el contador (1,2,3 ...) + el nombre del producto
     if len(los_10_mas_reservas) == 10: #línea para sólo mostrar 10 elementos aunque coincidan sus búsquedas
       break #Si se llega a 10elementos en la lista, se rompe el bucle
@@ -196,7 +312,6 @@ for cat in categorias: #Para cada categoría en la lista se va a realizar todo l
     if cat == prod[3]: #Se revisa su categoría
       lifestore_products_category.append(prod)#Se coloca al producto en la lista correspondiente
 
-  
   numero_ventas_cat = []  #Creamos una lista vacía que guardará listas formadas por el id del producto y el número de veces que fue vendido
   ventas = [] #Creamos otra lista vacía, en la que sólo se colocarán el total de ventas de cada producto
 
@@ -218,7 +333,10 @@ for cat in categorias: #Para cada categoría en la lista se va a realizar todo l
   for producto in numero_ventas_cat: #Para cada objeto en esta lista, donde teníamos almacenado el id producto con su venta, se busca si es de bajas ventas
     for top in peores5: #De la lista de peores ventas
       if producto[1]==top: #Se compara el valor de la venta con el valor de la venta para cada id del producto
-        top5peores_ventas.append(producto) #Si coincide con estar en la lista de las ventas más bajas, el id del producto se agrega a la lista.
+        if producto[0] in top5peores_ventas:
+          do="no hace nada"
+        else:
+          top5peores_ventas.append(producto[0]) #Si coincide con estar en la lista de las ventas más bajas, el id del producto se agrega a la lista.
 
   i = 0 #Se inicia un contador para marcar los menos vendidos
   los_5_menos_vendidos_cat = [] #Creamos una lista vacía para los 5 menos vendidos por categoria
@@ -227,10 +345,10 @@ for cat in categorias: #Para cada categoría en la lista se va a realizar todo l
   for elemento in top5peores_ventas: #Se checa cada id en la lista de los mejores vendidos
     i = i + 1 #Se aumenta el contador para ponerlo junto al nombre del producto
     for producto in lifestore_products_category:#Para cada producto en la lista de productos, se busca su id entre los peor vendidos
-      if elemento[0] == producto[0]:#Si coincide...
+      if elemento == producto[0]:#Si coincide...
         los_5_menos_vendidos_cat.append(producto[1])#Se agrega el producto a la lista de los 5 menos vendidos por categoría
         print(str(i)+'.-'+producto[1])# Se imprime el contador (1,2,3 ...) + el nombre del producto"""
-      if len(los_5_menos_vendidos_cat) == 10: #línea para sólo mostrar 5 elementos aunque coincidan sus búsquedas
+      if len(los_5_menos_vendidos_cat) == 5: #línea para sólo mostrar 5 elementos aunque coincidan sus búsquedas
         break #Si se llega a 5 elementos en la lista, se rompe el bucle
   print(los_5_menos_vendidos_cat)
 
@@ -257,7 +375,10 @@ for cat in categorias: #Para cada categoría en la lista se va a realizar todo l
   for producto in numero_consultas_cat: #Para cada objeto en esta lista, donde teníamos almacenado el id producto con su número de busquedas, se busca si está entre los menos buscados
     for top in menosbuscados10: #De la lista de menores búsquedas
       if producto[1]==top: #Se compara el valor de búsquedas con el valor para cada id del producto
-        top10_busquedas.append(producto[0]) #Si coincide con estar en la lista de menos buscados, el id del producto se agrega a la lista de menos buscados
+        if producto[0] in top10_busquedas:
+          do="no hace nada"
+        else:
+          top10_busquedas.append(producto[0]) #Si coincide con estar en la lista de menos buscados, el id del producto se agrega a la lista de menos buscados
 
   i = 0 #Se inicia un contador para marcar los menos buscados
   los_10_menos_buscados_cat = [] #Creamos una lista vacía para los 10 menos buscados por categoría
