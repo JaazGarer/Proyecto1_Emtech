@@ -6,7 +6,7 @@ Proyecto
  """
 
 USUARIO = 'Jaaz_G'
-CONTRASEÑA = 'Abcd1234'
+CONTRASENA = 'Abcd1234'
 Intentos = 3 #Número de intentos que daremos
 
 """En el código a continuación el usuario podrá ingresar su usuario y contraseña, los cuales, al no ser los correctos, enviarán un mensaje de error y reducirán el número de intentos que el usuario tiene para acceder. 
@@ -16,19 +16,19 @@ El código en sí es bastante repetitivo, pues se reduce a que con ayuda de un i
 usuario_ingresado = input('Nombre de usuario: ') #se pide al usuario ingresar su nombre de usuario
 if usuario_ingresado == USUARIO: #Si es el correcto, se procede
   contraseña_ingresada = input('Contraseña: ') #Se pide la contraseña al usuario
-  if contraseña_ingresada == CONTRASEÑA: #Si la contraseña es correcta, se da la bienvenida al usuario:
+  if contraseña_ingresada == CONTRASENA: #Si la contraseña es correcta, se da la bienvenida al usuario:
     print('Bienvenido usuario, a continuación de presenta la información del reporte') 
   else: #Si la contraseña presentada no es correcta
     Intentos = Intentos-1 #Se reducen los intentos
     print('Contraseña equivocada, te quedan '+str(Intentos)+' intentos.') #Se a visa del error
     contraseña_ingresada = input('Contraseña: ') #Se vuelve a pedir la contraseña
-    if contraseña_ingresada == CONTRASEÑA: #Se vuelve a corroborar si es correcta
+    if contraseña_ingresada == CONTRASENA: #Se vuelve a corroborar si es correcta
       print('Bienvenido usuario, a continuación de presenta la información del reporte')
     else:
       Intentos = Intentos-1
       print('Contraseña equivocada, te quedan '+str(Intentos)+' intentos.')
       contraseña_ingresada = input('Contraseña: ')
-      if contraseña_ingresada == CONTRASEÑA:
+      if contraseña_ingresada == CONTRASENA:
         print('Bienvenido usuario, a continuación de presenta la información del reporte')
       else:
         Intentos = Intentos-1
@@ -42,13 +42,13 @@ else: #Esta opción es si se falla por primera vez en ingresar correctamente el 
   usuario_ingresado = input('Nombre de usuario: ') #se pide de nuevo el usuario
   if usuario_ingresado == USUARIO: #si es correcto se repite el ciclo anterior
     contraseña_ingresada = input('Contraseña: ')
-    if contraseña_ingresada == CONTRASEÑA:
+    if contraseña_ingresada == CONTRASENA:
       print('Bienvenido usuario, a continuación de presenta la información del reporte') 
     else:
       Intentos = Intentos-1
       print('Contraseña equivocada, te quedan '+str(Intentos)+' intentos.')
       contraseña_ingresada = input('Contraseña: ')
-      if contraseña_ingresada == CONTRASEÑA:
+      if contraseña_ingresada == CONTRASENA:
         print('Bienvenido usuario, a continuación de presenta la información del reporte')
       else:
         Intentos = Intentos-1
@@ -58,7 +58,7 @@ else: #Esta opción es si se falla por primera vez en ingresar correctamente el 
               exit()
         else:
           contraseña_ingresada = input('Contraseña: ')
-          if contraseña_ingresada == CONTRASEÑA:
+          if contraseña_ingresada == CONTRASENA:
             print('Bienvenido usuario, a continuación de presenta la información del reporte')
           else:
             Intentos = Intentos-1
@@ -72,7 +72,7 @@ else: #Esta opción es si se falla por primera vez en ingresar correctamente el 
     usuario_ingresado = input('Nombre de usuario: ')
     if usuario_ingresado == USUARIO:
       contraseña_ingresada = input('Contraseña: ')
-      if contraseña_ingresada == CONTRASEÑA:
+      if contraseña_ingresada == CONTRASENA:
         print('Bienvenido usuario, a continuación de presenta la información del reporte')
       else:
         Intentos = Intentos-1
@@ -82,13 +82,13 @@ else: #Esta opción es si se falla por primera vez en ingresar correctamente el 
               exit()
         else:
           contraseña_ingresada = input('Contraseña: ')
-          if contraseña_ingresada == CONTRASEÑA:
+          if contraseña_ingresada == CONTRASENA:
             print('Bienvenido usuario, a continuación de presenta la información del reporte')
           else:
             Intentos = Intentos-1
             print('Contraseña equivocada, te quedan '+str(Intentos)+' intentos.')
             contraseña_ingresada = input('Contraseña: ')
-            if contraseña_ingresada == CONTRASEÑA:
+            if contraseña_ingresada == CONTRASENA:
               print('Bienvenido usuario, a continuación de presenta la información del reporte')
             else:
               Intentos = Intentos-1
